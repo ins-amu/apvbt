@@ -41,7 +41,9 @@ jobs:
       id: cache-data
       uses: actions/cache@v3
       with:
-        path: *.zip
+        path:
+          - hcp.zip
+          - 1kb.zip
         key: ${{ runner.os }}-data-${{ hashFiles('aaicd.py') }}
 
     - name: Download data
