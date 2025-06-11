@@ -27,14 +27,14 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Cache data
-      id: cache-data
+      id: cache-hcp
       uses: actions/cache@v3
       with:
-        path: hcp.zip 1kb.zip
-        key: ${{ runner.os }}-data-${{ hashFiles('aaicd.py') }}
+        path: hcp.zip
+        key: hcp
 
     - name: Download data
-      if: steps.cache-data.outputs.cache-hit != 'true'
+      if: steps.cache-hcp.outputs.cache-hit != 'true'
       run: python aaicd.py download
 
     - name: test cache
