@@ -918,6 +918,16 @@ def run_dl(args: DownloadDataArgs):
     XCode._download_kg_zip('hcp.zip', hcp=True)
     XCode._download_kg_zip('1kb.zip', hcp=False)
 
+class SummarizeDataArgs(tap.TypedArgs):
+    pass
+
+
+def run_summarizedata(args: SummarizeDataArgs):
+    xc = XCode.from_pkl('both.pkl')
+    print('tts', xc.tts)
+    for i, p in enumerate(xc.parcs):
+        print(i, p, xc.conns[i].shape)
+
 
 class DebugArgs(tap.TypedArgs):
     show_crs: bool = tap.arg(default=False)
@@ -1017,6 +1027,7 @@ if __name__ == '__main__':
             tap.SubParser('download', DownloadDataArgs,
                           help="Download datasets from KG."),
             tap.SubParser('dbg', DebugArgs),
+            tap.SubParser('summarize', SummarizeDataArgs, help="summarize data"),
         )
     ).bind(
         run_data,
@@ -1027,5 +1038,6 @@ if __name__ == '__main__':
         run_eval,
         run_dl,
         run_debug,
+        run_summarizedata
     ).run()
 
