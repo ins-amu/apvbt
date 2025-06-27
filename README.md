@@ -1,7 +1,9 @@
 # apvbt
 
+[![arXiv](https://img.shields.io/badge/arXiv-2506.21155-b31b1b.svg)](https://arxiv.org/abs/2506.21155)
+
 Code for paper on "Anonymizing Personalization in Virtual Brain Twins"
-accepted for ICANN 2025, available at http://arxiv.org/abs/2506.21155.
+accepted for ICANN 2025.
 
 Broadly the workflow is
 
